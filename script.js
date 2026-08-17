@@ -161,19 +161,16 @@ async function loadAvailableTimes() {
           selectedDate
         );
 
+if (error) {
 
-  if (error) {
-
-  console.error("SUPABASE ERROR");
-  console.error("message:", error.message);
-  console.error("details:", error.details);
-  console.error("hint:", error.hint);
-  console.error("code:", error.code);
+  console.error("FULL SUPABASE ERROR:");
+  console.error(JSON.stringify(error, null, 2));
 
   resetTimeSelect("Грешка при вчитување");
 
   showMessage(
-    "Supabase грешка: " + error.message
+    "ГРЕШКА: " +
+    (error.message || "Непозната грешка")
   );
 
   return;
