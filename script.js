@@ -162,23 +162,22 @@ async function loadAvailableTimes() {
         );
 
 
-    if (error) {
+  if (error) {
 
-      console.error(
-        "Supabase error:",
-        error
-      );
+  console.error("SUPABASE ERROR");
+  console.error("message:", error.message);
+  console.error("details:", error.details);
+  console.error("hint:", error.hint);
+  console.error("code:", error.code);
 
-      resetTimeSelect(
-        "Грешка при вчитување"
-      );
+  resetTimeSelect("Грешка при вчитување");
 
-      showMessage(
-        "Не можевме да ги вчитаме слободните термини."
-      );
+  showMessage(
+    "Supabase грешка: " + error.message
+  );
 
-      return;
-    }
+  return;
+}
 
 
     // Times already booked
